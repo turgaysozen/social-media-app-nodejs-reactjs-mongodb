@@ -38,7 +38,7 @@ router.put('/:id', async (req, res) => {
         }
     }
     else {
-        res.status(404).json("you don't have permission to update someone's information")
+        res.status(403).json("you don't have permission to update someone's information")
     }
 })
 
