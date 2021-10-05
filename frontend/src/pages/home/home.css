@@ -2,6 +2,5 @@
     display: flex;
     width: 85%;
     margin-left: 7.5%;
-    position: sticky;
-    overflow-y: scroll;
+    overflow-x: hidden;
 }
