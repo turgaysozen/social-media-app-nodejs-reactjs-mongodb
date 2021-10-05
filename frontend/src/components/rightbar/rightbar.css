@@ -54,8 +54,8 @@
 }
 .rightbarOnline {
     background-color: rgb(32, 230, 32);
-    width: 12px;
-    height: 12px;
+    width: 10px;
+    height: 10px;
     position: absolute;
     border-radius: 50%;
     top:0px;
