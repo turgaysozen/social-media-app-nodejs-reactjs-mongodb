@@ -18,13 +18,13 @@ export default function Profile() {
                             <img src="assets/person/8.jpeg" alt="" className="profileUserImg" />
                         </div>
                         <div className="profileInfo">
-                            <h2 className="profileInfoName">Turgay SÖZEN</h2>
+                            <h2 className="profileInfoName">Turgay SOZEN</h2>
                             <span className="profileInfoDesc">Hello This is a desc</span>
                         </div>
                     </div>
                     <div className="profileRightBarBottom">
                         <Feed />
-                        <RightBar />
+                        <RightBar profile />
                     </div>
                 </div>
             </div>

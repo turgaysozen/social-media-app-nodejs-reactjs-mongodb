@@ -1,7 +1,7 @@
 import './post.css'
 import { MoreVert } from '@mui/icons-material'
-import { Users } from '../../fakeDate'
-import { useState, useEffect } from 'react'
+import { Users } from '../../fakeData'
+import { useState } from 'react'
 
 export default function Post({ post }) {
     const [like, setlike] = useState(false)

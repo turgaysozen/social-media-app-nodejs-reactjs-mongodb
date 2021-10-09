@@ -1,7 +1,7 @@
 import './feed.css'
 import Share from '../share/Share'
 import Post from '../post/Post'
-import { Posts } from '../../fakeDate'
+import { Posts } from '../../fakeData'
 
 export default function Feed() {
     return (
