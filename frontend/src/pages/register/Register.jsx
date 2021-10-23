@@ -12,8 +12,8 @@ export default function Login() {
                     <div className="registerBox">
                         <input placeholder='Email' className="registerInput" />
                         <input placeholder='Username' className="registerInput" />
-                        <input placeholder='Password' className="registerInput" />
-                        <input placeholder='Password Again' className="registerInput" />
+                        <input type='password' placeholder='Password' className="registerInput" />
+                        <input type='password' placeholder='Password Again' className="registerInput" />
                         <button className="registerButton">Sign Up</button>
                         <button className="loginRegisterButton">Login into account</button>
                     </div>
