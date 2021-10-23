@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const helmet = require('helmet')
 const morgan = require('morgan')
+const cors = require('cors')
+
 const userRoute = require('./routes/users')
 const authRoute = require('./routes/auth')
 const postsRoute = require('./routes/posts')
@@ -20,6 +22,12 @@ connection.once("open", function () {
 app.use(express.json())
 app.use(helmet())
 app.use(morgan('common'))
+
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 app.use('/api/users', userRoute)
 app.use('/api/auth', authRoute)
