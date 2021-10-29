@@ -3,7 +3,7 @@ import Online from '../../components/online/Online'
 import { Users } from '../../fakeData'
 import Ads from '../../components/ads/Ads'
 
-export default function Rightbar(page) {
+export default function Rightbar({ user }) {
     const HomeComponent = () => {
         return (
             <>
@@ -31,15 +31,15 @@ export default function Rightbar(page) {
                 <div className="rightbarInfo">
                     <div className="rightbarInfoItem">
                         <span className="rightbarInfoKey">City: </span>
-                        <span className="rightbarInfoValue">Istanbul</span>
+                        <span className="rightbarInfoValue">{user.city}</span>
                     </div>
                     <div className="rightbarInfoItem">
                         <span className="rightbarInfoKey">From: </span>
-                        <span className="rightbarInfoValue">Turkey</span>
+                        <span className="rightbarInfoValue">{user.from}</span>
                     </div>
                     <div className="rightbarInfoItem">
                         <span className="rightbarInfoKey">Relationship: </span>
-                        <span className="rightbarInfoValue">Single</span>
+                        <span className="rightbarInfoValue">{user.relation === 1 ? 'Single' : user.relation === 2 ? 'Married' : 'No Info'}</span>
                     </div>
                 </div>
                 <h3>Friends</h3>
@@ -76,7 +76,7 @@ export default function Rightbar(page) {
     return (
         <div className='rightbar'>
             <div className="rightbarWrapper">
-                {page.profile ? <ProfileComponent /> : <HomeComponent />}
+                {user ? <ProfileComponent /> : <HomeComponent />}
             </div>
         </div>
     )

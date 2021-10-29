@@ -13,7 +13,6 @@ export default function Profile() {
     useEffect(() => {
         (async () => {
             const users = await axios.get(`http://localhost:8800/api/users?username=Turgay`)
-            console.log(users)
             setUser(users.data)
         })
             ()
@@ -37,7 +36,7 @@ export default function Profile() {
                     </div>
                     <div className="profileRightBarBottom">
                         <Feed username='Turgay' />
-                        <RightBar user />
+                        <RightBar user={user} />
                     </div>
                 </div>
             </div>
