@@ -6,6 +6,7 @@ import RightBar from '../../components/rightbar/Rightbar'
 import './profile.css'
 
 export default function Profile() {
+
     return (
         <>
             <Topbar />
@@ -23,7 +24,7 @@ export default function Profile() {
                         </div>
                     </div>
                     <div className="profileRightBarBottom">
-                        <Feed />
+                        <Feed username='Turgay' />
                         <RightBar profile />
                     </div>
                 </div>

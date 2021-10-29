@@ -3,6 +3,7 @@ import { MoreVert } from '@mui/icons-material'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { format } from 'timeago.js'
+import { Link } from 'react-router-dom'
 
 export default function Post({ post }) {
     const [like, setlike] = useState(false)
@@ -27,7 +28,9 @@ export default function Post({ post }) {
             <div className="postWrapper">
                 <div className="postTop">
                     <div className="postTopLeft">
-                        <img src={user.profilePicture} alt="" className="postProfileImg" />
+                        <Link to={'/profile/' + user.username}>
+                            <img src={user.profilePicture} alt="" className="postProfileImg" />
+                        </Link>
                         <span className="postUserName">{user.username}</span>
                         <span className="postDate">{format(post.createdAt)}</span>
                     </div>
