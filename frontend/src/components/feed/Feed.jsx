@@ -15,7 +15,7 @@ export default function Feed({ username }) {
             setPost(posts.data)
         })
             ()
-    }, [])
+    }, [username])
 
     return (
         <div className='feed'>

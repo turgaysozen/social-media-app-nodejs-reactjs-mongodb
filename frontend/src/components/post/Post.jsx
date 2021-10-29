@@ -16,7 +16,7 @@ export default function Post({ post }) {
             setUser(users.data)
         })
             ()
-    }, post.userId)
+    }, [post.userId])
 
     const handleClick = () => {
         setlike(!like)
