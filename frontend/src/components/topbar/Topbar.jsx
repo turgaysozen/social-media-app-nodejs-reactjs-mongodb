@@ -1,15 +1,18 @@
 import './topbar.css'
-import {Search, Person, Chat, Notifications} from '@mui/icons-material'
+import { Search, Person, Chat, Notifications } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
 export default function Topbar() {
     return (
         <div className='topbarContainer'>
             <div className="topbarLeft">
-                <div className=" logo">Hi Social</div>
+                <Link to='/'>
+                    <div className="logo">Hi Social</div>
+                </Link>
             </div>
             <div className="topbarCenter">
                 <div className="searchbar">
-                    <Search className='searchIcon'/>
+                    <Search className='searchIcon' />
                     <input placeholder='Search Something...' className="searchInput" />
                 </div>
             </div>
@@ -20,19 +23,19 @@ export default function Topbar() {
                 </div>
                 <div className="topbarIcons">
                     <div className="topbarIconItems">
-                        <Person/>
+                        <Person />
                         <span className="topbarIconBadge">
                             1
                         </span>
                     </div>
                     <div className="topbarIconItems">
-                        <Chat/>
+                        <Chat />
                         <span className="topbarIconBadge">
                             2
                         </span>
                     </div>
                     <div className="topbarIconItems">
-                        <Notifications/>
+                        <Notifications />
                         <span className="topbarIconBadge">
                             5
                         </span>
@@ -43,4 +46,3 @@ export default function Topbar() {
         </div>
     )
 }
- 
