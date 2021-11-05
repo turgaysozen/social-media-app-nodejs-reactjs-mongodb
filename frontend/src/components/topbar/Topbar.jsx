@@ -6,7 +6,7 @@ export default function Topbar() {
     return (
         <div className='topbarContainer'>
             <div className="topbarLeft">
-                <Link to='/'>
+                <Link style={{ textDecoration: 'none'}} to='/'>
                     <div className="logo">Hi Social</div>
                 </Link>
             </div>
