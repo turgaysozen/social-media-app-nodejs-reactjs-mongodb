@@ -33,7 +33,7 @@ export default function Profile() {
                         </div>
                         <div className="profileInfo">
                             <h2 className="profileInfoName">{user.username}</h2>
-                            <span className="profileInfoDesc">{user.desc ? user.desc : 'No Description for this user :('}</span>
+                            <span className="profileInfoDesc">{user.desc || 'No Description for this user :('}</span>
                         </div>
                     </div>
                     <div className="profileRightBarBottom">
