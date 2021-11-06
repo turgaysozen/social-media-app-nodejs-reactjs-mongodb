@@ -7,6 +7,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 import { useContext } from 'react';
 import { AuthContext } from './context/AuthContext';
@@ -23,10 +24,10 @@ function App() {
           <Profile />
         </Route>
         <Route path='/login'>
-          {user ? <Home /> : <Login />}
+          {user ? <Redirect to='/' /> : <Login />}
         </Route>
         <Route path='/register'>
-          {user ? <Home /> : <Register />}
+          {user ? <Redirect to='/' /> : <Register />}
         </Route>
       </Switch>
     </Router>
