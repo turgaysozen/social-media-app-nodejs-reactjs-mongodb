@@ -13,6 +13,7 @@ export default function Post({ post }) {
     const { user: currentUser } = useContext(AuthContext)
 
     useEffect(() => {
+        // if current user id is already in post.likes, acts like it's already liked
         setlike(post.likes.includes(currentUser._id))
     }, [currentUser._id, post.likes])
 
@@ -24,6 +25,7 @@ export default function Post({ post }) {
             ()
     }, [post.userId])
 
+    // get user from the context and handle like or dislike posts
     const handleClick = async () => {
         try {
             const url = "http://localhost:8800/api/posts/" + post._id + "/like"
