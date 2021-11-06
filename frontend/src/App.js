@@ -18,7 +18,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path='/'>
-          {user ? <Home /> : <Login />}
+          {user ? <Home /> : <Register />}
         </Route>
         <Route path='/profile/:username'>
           <Profile />
