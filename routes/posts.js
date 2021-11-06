@@ -52,7 +52,8 @@ router.delete('/:id', async (req, res) => {
 })
 
 // like-dislike post
-router.put('/:id/like', async (req, res) => {
+router.post('/:id/like', async (req, res) => {
+    console.log('heree')
     try {
         const post = await Post.findById(req.params.id)
         if (!post.likes.includes(req.body.userId)) {
