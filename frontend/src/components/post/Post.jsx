@@ -29,7 +29,7 @@ export default function Post({ post }) {
     const handleClick = async () => {
         try {
             const url = "http://localhost:8800/api/posts/" + post._id + "/like"
-            const res = await axios.post(url, { userId: currentUser._id })
+            await axios.post(url, { userId: currentUser._id })
         }
         catch (error) {
             alert(error)
