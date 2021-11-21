@@ -8,22 +8,34 @@ import axios from 'axios'
 export default function Share() {
     const { user } = useContext(AuthContext)
     const description = useRef()
-    const [file, setFile] = useState()
-
-    const uploadFile = (e) => {
-        setFile(e.target.files[0])
-    }
+    const [file, setFile] = useState(null)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        try {
-            const post = {
-                userId: user._id,
-                description: description
+        const post = {
+            userId: user._id,
+            desc: description.current.value
+        }
+
+        if (file) {
+            const data = new FormData()
+            const fileName = Date.now() + file.name
+            data.append("name", fileName)
+            data.append("file", file)
+            post.img = fileName
+
+            try {
+                await axios.post('http://localhost:8800/api/upload', data)
+            } catch (error) {
+                alert(error)
             }
-            await axios.post('http://localhost:8800/api/posts')
+        }
+        console.log(post)
+        try {
+            await axios.post('http://localhost:8800/api/posts', post)
+            window.location.reload();
         } catch (error) {
-            alert(error)
+            // alert(error)
         }
     }
     return (
@@ -39,7 +51,8 @@ export default function Share() {
                         <label htmlFor='file' className="shareOption">
                             <PermMedia htmlColor='tomato' className='shareIcon' />
                             <span className='ShareOptionText'>Media</span>
-                            <input style={{ display: 'none' }} type='file' id='file' accept='.png,.jpeg,.jpg' onChange={uploadFile} />
+                            <input style={{ display: 'none' }} type='file' id='file' accept='.png,.jpeg,.jpg' onChange={(e) => setFile(e.target.files[0])
+                            } />
                         </label>
                         <div className="shareOption">
                             <Label htmlColor='green' className='shareIcon' />
@@ -54,7 +67,7 @@ export default function Share() {
                             <span className='ShareOptionText'>Feelings</span>
                         </div>
                     </div>
-                    <button className="shareButton">Share</button>
+                    <button className="shareButton" type='submit'>Share</button>
                 </form>
             </div>
         </div>
