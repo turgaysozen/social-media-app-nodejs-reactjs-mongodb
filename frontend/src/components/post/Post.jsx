@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 import { AuthContext } from '../../context/AuthContext'
 
 export default function Post({ post }) {
+    const PF = process.env.REACT_APP_PUBLIC_FOLDER;
     const [like, setlike] = useState(false)
     const [count, setCount] = useState(post.likes.length)
     const [user, setUser] = useState({})
@@ -59,7 +60,7 @@ export default function Post({ post }) {
                 <hr className="postHr" />
                 <div className="postCenter">
                     <span className="postText">{post.desc}</span>
-                    <img src={post.img} alt="" className="postImg" />
+                    <img src={PF+ '/' + post.img} alt="" className="postImg" />
                 </div>
                 <div className="postBottom">
                     <div className="postBottomLeft">
