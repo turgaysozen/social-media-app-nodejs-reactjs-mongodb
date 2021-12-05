@@ -27,10 +27,9 @@ export default function Share() {
             try {
                 await axios.post('http://localhost:8800/api/upload', data)
             } catch (error) {
-                alert(error)
+                //alert(error)
             }
         }
-        console.log(post)
         try {
             await axios.post('http://localhost:8800/api/posts', post)
             window.location.reload();
