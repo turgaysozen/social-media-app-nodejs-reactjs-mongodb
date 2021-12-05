@@ -10,7 +10,7 @@ import { useParams } from 'react-router'
 
 export default function Profile() {
     const [user, setUser] = useState({})
-    const username = useParams.apply().username
+    const username = useParams().username
 
     useEffect(() => {
         (async () => {
