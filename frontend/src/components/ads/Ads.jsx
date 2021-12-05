@@ -5,9 +5,8 @@ export default function Ads() {
         <>
             <div className="adsWrapper">
                 <h3>Advertisement</h3>
-                <img src="assets/ad.png" alt="" className="rightbarAds" />
+                <img src="http://localhost:8800/uploads/ad.png" alt="" className="rightbarAds" />
             </div>
-
         </>
     )
 }
