@@ -2,8 +2,24 @@ import './rightbar.css'
 import Online from '../../components/online/Online'
 import { Users } from '../../fakeData'
 import Ads from '../../components/ads/Ads'
+import axios from 'axios'
+import { AuthContext } from '../../context/AuthContext'
+import { useState, useEffect, useContext } from 'react'
+
 
 export default function Rightbar({ user }) {
+    const { user: currentUser } = useContext(AuthContext)
+
+    const [allFriends, setAllFriends] = useState([])
+
+    useEffect(() => {
+        (async () => {
+            const friends = await axios.get('http://localhost:8800/api/users/friends/' + currentUser._id)
+            console.log(friends.data)
+            setAllFriends(friends.data)
+        })()
+    }, [currentUser])
+
     const HomeComponent = () => {
         return (
             <>
@@ -44,30 +60,12 @@ export default function Rightbar({ user }) {
                 </div>
                 <h3>Friends</h3>
                 <div className="rightbarFollowings">
-                    <div className="rightbarFollowing">
-                        <img src="assets/person/1.jpeg" alt="" className="rightbarFollowingImg" />
-                        <span className="rightbarFollowingName">Ricky Martin</span>
-                    </div>
-                    <div className="rightbarFollowing">
-                        <img src="assets/person/2.jpeg" alt="" className="rightbarFollowingImg" />
-                        <span className="rightbarFollowingName">Barrack O.</span>
-                    </div>
-                    <div className="rightbarFollowing">
-                        <img src="assets/person/3.jpeg" alt="" className="rightbarFollowingImg" />
-                        <span className="rightbarFollowingName">Jane Doe</span>
-                    </div>
-                    <div className="rightbarFollowing">
-                        <img src="assets/person/4.jpeg" alt="" className="rightbarFollowingImg" />
-                        <span className="rightbarFollowingName">Tyler Durden</span>
-                    </div>
-                    <div className="rightbarFollowing">
-                        <img src="assets/person/5.jpeg" alt="" className="rightbarFollowingImg" />
-                        <span className="rightbarFollowingName">XX YY</span>
-                    </div>
-                    <div className="rightbarFollowing">
-                        <img src="assets/person/6.jpeg" alt="" className="rightbarFollowingImg" />
-                        <span className="rightbarFollowingName">ZZZ ÜÜ</span>
-                    </div>
+                    {allFriends.map((friend) => (
+                        <div className="rightbarFollowing">
+                            <img src={friend.profilePicture} alt="" className="rightbarFollowingImg" />
+                            <span className="rightbarFollowingName">{friend.username}</span>
+                        </div>
+                    ))}
                 </div>
                 <Ads />
             </>
